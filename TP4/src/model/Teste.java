@@ -155,7 +155,7 @@ public class Teste {
 			plano = new PlanoFree(agora);
 		}
 		
-		Usuario usuario = new Usuario(id, nome, sobrenome, email, endereco, telefone, cpf, plano, kmPedalado);
+		Usuario usuario = new Usuario(nome, sobrenome, email, endereco, telefone, cpf, plano, kmPedalado);
 		println("Bem vindo " + usuario.getNomecompleto());
 		println("Email: " + usuario.getEmail());
 		println("CPF: " + usuario.getCpf());
@@ -167,13 +167,13 @@ public class Teste {
 	
 	public static void case2() {
 		for(int i = 0; i < 50; i++) {
-			println(allusers[i].getId() + " - " + allusers[i].getNomecompleto());
+			println(i + " - " + allusers[i].getNomecompleto());
 		}
 	}
 
 	public static void case3() {
 		for(int i = 0; i < 50; i++) {
-			println(allbici[i].getId() + " - " + allbici[i].getStatus());
+			println(i + " - " + allbici[i].getStatus());
 		}
 	}
 	
@@ -192,19 +192,19 @@ public class Teste {
 	// Add
 	public static void addBicicleta() {
 		for(int i = 0; i < 50; i++) {
-			allbici[i] = new Bicicleta(i, false, 19, "green", 10, 0);
+			allbici[i] = new Bicicleta(false, 19, "green", 10, 0);
 		}
 	}
 	
 	public static void addUsuario() {
 		for(int i = 0; i < 50; i++) {
-			allusers[i] = new Usuario(i, "user", "Sr." + i, "email@email.com", end, tel, i, plano, 0);
+			allusers[i] = new Usuario("user", "Sr." + i, "email@email.com", end, tel, i, plano, 0);
 		}
 	}
 	
 	public static void addCorrida() {		
 		for(int i = 0; i < 50; i++) {
-			allcorrida[i] = new Corrida(i, allusers[i], 60, agora, allbici[i], i);
+			allcorrida[i] = new Corrida(allusers[i], 60, agora, allbici[i], i);
 		}
 	}
 	
