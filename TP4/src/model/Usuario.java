@@ -3,7 +3,6 @@ package model;
 public class Usuario {
 	
 	// Atributos usuario
-	private int id;
 	private String nome;
 	private String sobrenome;
 	private String email;
@@ -14,8 +13,7 @@ public class Usuario {
 	private int kmPedalado;
 	
 	// Construtor
-	public Usuario (int id, String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, long cpf, Plano plano, int kmPedalado) {
-		setId(id);
+	public Usuario (String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, long cpf, Plano plano, int kmPedalado) {
 		setNome(nome);
 		setSobrenome(sobrenome);
 		setEmail(email);
@@ -27,11 +25,7 @@ public class Usuario {
 	}
 	
 	// Metodos
-		// Gets
-	public int getId() {
-		return this.id;
-	}
-	
+		// Gets	
 	public String getNomecompleto() {
 		return (this.nome + " " + this.sobrenome);
 	}
@@ -60,11 +54,7 @@ public class Usuario {
 		return this.kmPedalado;
 	}
 	
-		// Sets
-	public void setId(int id) {
-		this.id = id;
-	}
-	
+		// Sets	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -103,7 +93,6 @@ public class Usuario {
 	}
 	
 	public void editaUsuario(String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, long cpf, Plano plano, int kmPedalado) {
-		setId(id);
 		setNome(nome);
 		setSobrenome(sobrenome);
 		setEmail(email);

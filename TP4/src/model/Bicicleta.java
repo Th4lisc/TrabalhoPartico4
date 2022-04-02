@@ -3,7 +3,6 @@ package model;
 public class Bicicleta {
 
 	// Atributos
-	private int id;
 	private boolean status;
 	private String tipo;
 	private int aro;
@@ -12,8 +11,7 @@ public class Bicicleta {
 	private int kmPedalado;
 	
 	// Construtor
-	public Bicicleta(int id, boolean status, int aro, String cor, float peso, int kmPedalado) {
-		setId(id);
+	public Bicicleta(boolean status, int aro, String cor, float peso, int kmPedalado) {
 		setStatus(status);
 		setAro(aro);
 		setCor(cor);
@@ -23,10 +21,6 @@ public class Bicicleta {
 	
 	// Metodos
 		// Gets
-	public int getId() {
-		return this.id;
-	}
-	
 	public boolean getStatus() {
 		return this.status;
 	}
@@ -52,10 +46,6 @@ public class Bicicleta {
 	}
 	
 		// Sets
-	public void setId(int id) {
-		this.id = id;
-	}
-	
 	public void setStatus(boolean status) {
 		this.status = status;
 	}

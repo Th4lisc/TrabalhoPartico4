@@ -5,7 +5,6 @@ import java.util.Date;
 public class Corrida {
 
 	// Atributos
-	private int id;
 	private Usuario usuario;
 	private long tempoUso;
 	private Date dataUso;
@@ -13,8 +12,7 @@ public class Corrida {
 	private int kmPedalado;
 	
 	// Construtor
-	public Corrida(int id, Usuario usuario, long tempoUso, Date dataUso, Bicicleta bicicletaUtilizada, int kmPedalado) {
-		setId(id);
+	public Corrida(Usuario usuario, long tempoUso, Date dataUso, Bicicleta bicicletaUtilizada, int kmPedalado) {
 		setUsuario(usuario);
 		setTempoUso(tempoUso);
 		setDataUso(dataUso);
@@ -24,10 +22,6 @@ public class Corrida {
 	
 	// Metodos
 		// Gets
-	public int getId() {
-		return this.id;
-	}
-	
 	public String getUsuario() {
 		return this.usuario.getNomecompleto();
 	}
@@ -49,10 +43,6 @@ public class Corrida {
 	}
 	
 		// Sets
-	public void setId(int id) {
-		this.id = id;
-	}
-	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
@@ -77,8 +67,7 @@ public class Corrida {
 		this.kmPedalado += km;
 	}
 	
-	public void editaCorrida(int id, Usuario usuario, long tempoUso, Date dataUso, Bicicleta bicicletaUtilizada, int kmPedalado) {
-		setId(id);
+	public void editaCorrida(Usuario usuario, long tempoUso, Date dataUso, Bicicleta bicicletaUtilizada, int kmPedalado) {
 		setUsuario(usuario);
 		setTempoUso(tempoUso);
 		setDataUso(dataUso);

@@ -3,7 +3,6 @@ package model;
 public class Estacao {
 	
 	// Atributos
-	private int id;
 	private String nome;
 	private Endereco endereco;
 	private int numVagas;
@@ -19,10 +18,6 @@ public class Estacao {
 	
 	// Metodos
 		// Gets
-	public int getId() {
-		return this.id;
-	}
-	
 	public String getNome() {
 		return this.nome;
 	}
@@ -40,10 +35,6 @@ public class Estacao {
 	}
 	
 		// Sets
-	public void setId(int id) {
-		this.id = id;
-	}
-	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
