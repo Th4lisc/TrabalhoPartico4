@@ -3,35 +3,34 @@ package model;
 public class Telefone {
 
 	// Atributos Telefone
-	private int ddd;
-	private long numero;
+	private String ddd, numero;
 	
 	// Construtor
-	public Telefone(int ddd, long numero) {
+	public Telefone(String ddd, String numero) {
 		setDDD(ddd);
 		setNumero(numero);
 	}
 	
 	// Metodos
 		// Gets
-	public int getDDD() {
+	public String getDDD() {
 		return this.ddd;
 	}
 	
-	public long getNumero() {
+	public String getNumero() {
 		return this.numero;
 	}
 		
 		// Sets
-	public void setDDD(int ddd) {
+	public void setDDD(String ddd) {
 		this.ddd = ddd;
 	}
 	
-	public void setNumero(long num) {
+	public void setNumero(String num) {
 		this.numero = num;
 	}
 	
-	public boolean editaTelefone(int ddd, long numero) {
+	public boolean editaTelefone(String ddd, String numero) {
 		this.ddd = ddd;
 		this.numero = numero;
 		

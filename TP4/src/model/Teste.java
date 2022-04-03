@@ -16,8 +16,8 @@ public class Teste {
 	static Corrida[] allcorrida = new Corrida[50];
 	static Estacao[] allestacoes = new Estacao[10];
 	
-	static Endereco end = new Endereco(0, "xo", "xo", "xo", "xo", 0);
-	static Telefone tel = new Telefone(99, 99999999);
+	static Endereco end = new Endereco("0", "xo", "xo", "xo", "xo", "0");
+	static Telefone tel = new Telefone("99", "999999999");
 	static Plano plano = new PlanoFree(agora);
 	
 	

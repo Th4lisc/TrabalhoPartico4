@@ -3,15 +3,15 @@ package model;
 public class Endereco {
 
 	// Atributos Endereco
-	private long cep;
+	private String cep;
 	private String pais;
 	private String estado;
 	private String bairro;
 	private String ruaQuadra;
-	private int numero;
+	private String numero;
 		
 	// Construtor
-	public Endereco(long cep, String pais, String estado, String bairro, String ruaQuadra, int numero) {
+	public Endereco(String cep, String pais, String estado, String bairro, String ruaQuadra, String numero) {
 		setCep(cep);
 		setPais(pais);
 		setEstado(estado);
@@ -25,7 +25,7 @@ public class Endereco {
 		return (this.getPais() + ", " + this.getEstado() + ", " + this.getBairro() + ", " + this.getRuaQuadra() + ", " + this.getNumero() + " - " + this.getCep());
 	}
 		// Gets
-	public long getCep() {
+	public String getCep() {
 		return this.cep;
 	}
 	
@@ -45,12 +45,12 @@ public class Endereco {
 		return this.ruaQuadra;
 	}
 	
-	public int getNumero() {
+	public String getNumero() {
 		return this.numero;
 	}
 	
 		// Sets
-	public void setCep(long cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 	
@@ -70,11 +70,11 @@ public class Endereco {
 		this.ruaQuadra = ruaQuadra;
 	}
 	
-	public void setNumero(int num) {
+	public void setNumero(String num) {
 		this.numero = num;
 	}
 	
-	public void editaEndereco(long cep, String pais, String estado, String bairro, String ruaQuadra, int numero) {
+	public void editaEndereco(String cep, String pais, String estado, String bairro, String ruaQuadra, String numero) {
 		setCep(cep);
 		setPais(pais);
 		setEstado(estado);

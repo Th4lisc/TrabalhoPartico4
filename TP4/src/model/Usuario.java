@@ -8,12 +8,12 @@ public class Usuario {
 	private String email;
 	private Endereco endereco;
 	private Telefone telefone;
-	private long cpf;
+	private String cpf;
 	private Plano plano;
 	private int kmPedalado;
 	
 	// Construtor
-	public Usuario (String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, long cpf, Plano plano, int kmPedalado) {
+	public Usuario (String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, String cpf, Plano plano, int kmPedalado) {
 		setNome(nome);
 		setSobrenome(sobrenome);
 		setEmail(email);
@@ -42,7 +42,7 @@ public class Usuario {
 		return this.telefone;
 	}
 	
-	public long getCpf() {
+	public String getCpf() {
 		return this.cpf;
 	}
 	
@@ -75,7 +75,7 @@ public class Usuario {
 		this.telefone = tel;
 	}
 	
-	public void setCpf(long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	
@@ -92,7 +92,7 @@ public class Usuario {
 		return true;
 	}
 	
-	public void editaUsuario(String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, long cpf, Plano plano, int kmPedalado) {
+	public void editaUsuario(String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, String cpf, Plano plano, int kmPedalado) {
 		setNome(nome);
 		setSobrenome(sobrenome);
 		setEmail(email);
