@@ -13,11 +13,13 @@ public class TelaPlano {
 
 	private static JFrame janela = new JFrame("Planos");
 	private static JLabel titulo = new JLabel("Planos");
+	
 	private static JButton botao = new JButton("Ok");
 
 	public TelaPlano() {
 		janela.getContentPane().setBackground(Color.darkGray);
-		janela.setLocation(300, 100);
+		janela.setLocationByPlatform(true);
+		janela.setResizable(false);
 		
 		titulo.setFont(new Font("MS Gothic", Font.BOLD, 24));
 		titulo.setForeground(Color.white);

@@ -16,7 +16,8 @@ public class TelaMenu implements ActionListener {
 
 	public TelaMenu() {
 		janela.getContentPane().setBackground(Color.darkGray);
-		janela.setLocation(300, 100);
+		janela.setLocationByPlatform(true);
+		janela.setResizable(false);
 		
 		titulo.setFont(new Font("MS Gothic", Font.BOLD, 24));
 		titulo.setForeground(Color.white);
@@ -26,7 +27,7 @@ public class TelaMenu implements ActionListener {
 		perfil.setBounds(120, 140, 100, 30);
 		
 		plano.setBackground(Color.white);
-		plano.setBounds(120, 190, 100, 30);
+		plano.setBounds(120, 190, 102, 30);
 		
 		corrida.setBackground(Color.white);
 		corrida.setBounds(120, 240, 100, 30);
@@ -58,6 +59,7 @@ public class TelaMenu implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
+		
 		
 		if (src == perfil) {
 			new TelaUsuario();

@@ -42,7 +42,8 @@ public class TelaCadastro implements ActionListener {
 
 	public TelaCadastro() {
 		janela.getContentPane().setBackground(Color.darkGray);
-		janela.setLocation(300, 100);
+		janela.setLocationByPlatform(true);
+		janela.setResizable(false);
 		
 		titulo.setFont(new Font("MS Gothic", Font.BOLD, 24));
 		titulo.setForeground(Color.white);
