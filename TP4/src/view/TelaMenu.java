@@ -14,7 +14,7 @@ public class TelaMenu implements ActionListener {
 	private static JButton corrida = new JButton("Corridas");
 	private static JButton buscar = new JButton("Buscar");
 
-	public TelaMenu() {
+	public void show() {
 		janela.getContentPane().setBackground(Color.darkGray);
 		janela.setLocationByPlatform(true);
 		janela.setResizable(false);
@@ -46,9 +46,7 @@ public class TelaMenu implements ActionListener {
 		janela.setSize(360, 480);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
-	}
-	
-	public static void main(String[] args) {
+		
 		TelaMenu menu = new TelaMenu();
 		
 		perfil.addActionListener(menu);
@@ -66,7 +64,7 @@ public class TelaMenu implements ActionListener {
 		} else if (src == plano) {
 			new TelaPlano();
 		} else if (src == corrida) {
-			new TelaCorrida();
+			new TelaCorrida().show();
 		} else if (src == buscar) {
 			new TelaBuscar();
 		}

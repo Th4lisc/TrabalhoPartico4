@@ -1,7 +1,6 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,8 +10,8 @@ public class TelaBoasvindas implements ActionListener {
 
 	private static JFrame janela = new JFrame("Bem-vindo");
 	private static JLabel titulo = new JLabel("Olá, seja bem-vindo");
-	private static JLabel digitenome = new JLabel("Digite seu nome completo:");
-	private static JTextField nome = new JTextField();
+	private static Container c = janela.getContentPane();
+	private static JLabel label = new JLabel();
 	private static JButton botao = new JButton("Vamos lá");
 
 	public TelaBoasvindas () {
@@ -24,12 +23,11 @@ public class TelaBoasvindas implements ActionListener {
 		titulo.setForeground(Color.white);
 		titulo.setBounds(45, 25, 250, 60);
 		
-		digitenome.setFont(new Font("MS Gothic", Font.BOLD, 13));
-		digitenome.setForeground(Color.white);
-		digitenome.setBounds(65, 150, 350, 60);
-		
-		nome.setForeground(Color.darkGray);
-		nome.setBounds(60, 200, 200, 30);
+		label.setIcon(new ImageIcon("bike.png"));
+		Dimension size = label.getPreferredSize(); //Gets the size of the image
+        label.setBounds(95, 120, size.width, size.height); //Sets the location of the image
+ 
+        c.add(label); //Adds objects to the container
 		
 		botao.setBackground(Color.white);
 		botao.setBounds(120, 360, 100, 30);
@@ -37,8 +35,6 @@ public class TelaBoasvindas implements ActionListener {
 		janela.setLayout(null);
 		
 		janela.add(titulo);
-		janela.add(digitenome);
-		janela.add(nome);
 		janela.add(botao);
 		
 		janela.setSize(360, 480);
@@ -55,8 +51,10 @@ public class TelaBoasvindas implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == botao)
-			new TelaMenu();
+		if(src == botao) {
+			new TelaCadastro().show();
+			janela.dispose();
+		}
 	}
 
 }

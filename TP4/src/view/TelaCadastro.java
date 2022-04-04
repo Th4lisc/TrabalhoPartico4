@@ -4,11 +4,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import javax.swing.*;
-import model.*;
+
+import controller.*;
 
 public class TelaCadastro implements ActionListener {
 
@@ -40,7 +39,7 @@ public class TelaCadastro implements ActionListener {
 	private static JTextField entrynumero = new JTextField();
 	private static JButton botao = new JButton("Ok");
 
-	public TelaCadastro() {
+	public void show() {
 		janela.getContentPane().setBackground(Color.darkGray);
 		janela.setLocationByPlatform(true);
 		janela.setResizable(false);
@@ -144,26 +143,41 @@ public class TelaCadastro implements ActionListener {
 		janela.setSize(360, 480);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
-	}
-	
-	public static void main(String[] args) {
-		TelaCadastro cadastro = new TelaCadastro();
 		
+		TelaCadastro cadastro = new TelaCadastro();
 		botao.addActionListener(cadastro);
 	}
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
+		ControleUsuario us = new ControleUsuario();
+		ControleEndereco end = new ControleEndereco();
+		ControleTelefone tel = new ControleTelefone();
 		
 		if (src == botao) {
 			// Verificar dados
-			// entao:
-			GregorianCalendar d= new GregorianCalendar();
-			Date agora = d.getTime();
-			
-			Telefone tel = new Telefone(entryddd.getText(), entrynum.getText());
-			Endereco end = new Endereco(entrycep.getText(), entrypais.getText(), entryestado.getText(), entrybairro.getText(), entryruaQuadra.getText(), entrynumero.getText());
-			Usuario usuario = new Usuario(entrynome.getText(), entrysobrenome.getText(), entryemail.getText(), end, tel, entrycpf.getText(), new PlanoFree(agora), 0);
+			if (us.verificaTamanho(entrynome.getText()) && us.verificaTamanho(entrysobrenome.getText())) {
+				if (us.verificaCpf(entrycpf.getText())) {
+					if(us.verificaEmail(entryemail.getText()) && us.verificaTamanho(entryemail.getText())) {
+						// Add usuario
+						int id = us.getQtdUsuarios();
+						end.addEndereco(id, entrycep.getText(), entrypais.getText(), entryestado.getText(), entrybairro.getText(), entryruaQuadra.getText(), entrynumero.getText());
+						tel.addTelefone(id, entryddd.getText(), entrynumero.getText());
+						us.addUsuario(id, entrynome.getText(), entrysobrenome.getText(), entryemail.getText(), end.getEndereco(id), tel.getTelefone(id), entrycpf.getText(), 0);
+						
+						JOptionPane.showMessageDialog(null, "Cadastrado!", "Pronto", JOptionPane.INFORMATION_MESSAGE);
+						janela.dispose();
+						new TelaMenu().show();
+						//
+					} else {
+						JOptionPane.showMessageDialog(null, "Email inválido", "Erro", JOptionPane.INFORMATION_MESSAGE);
+					}
+				} else {
+					JOptionPane.showMessageDialog(null, "Cpf inválido", "Erro", JOptionPane.INFORMATION_MESSAGE);
+				}
+			} else {
+				JOptionPane.showMessageDialog(null, "Nome ou sobrenome inválidos", "Erro", JOptionPane.INFORMATION_MESSAGE);
+			}
 		}
 	}
 

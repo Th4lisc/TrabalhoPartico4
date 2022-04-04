@@ -24,7 +24,7 @@ public class Usuario {
 		setKmPedalado(kmPedalado);
 	}
 	
-	// Metodos
+	// Metodos	
 		// Gets	
 	public String getNomecompleto() {
 		return (this.nome + " " + this.sobrenome);
