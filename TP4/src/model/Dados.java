@@ -27,7 +27,7 @@ public class Dados {
 			usuario[i] = new Usuario("Usuario", "Sobrenome " + i, "example@email", endereco[i], telefone[i], "99999999999", new PlanoFree(agora), 0);
 			
 			bicicleta[i] = new Bicicleta(false, 26, "Preta", 11, 0);
-			estacao[i] = new Estacao("Estacao " + i, endereco[i], 5, 5);
+			estacao[i] = new Estacao("Estação " + i, endereco[i], 5, 5);
 			corrida[i] = new Corrida(usuario[i], 35, agora, bicicleta[i], i);
 		}
 		
@@ -60,7 +60,7 @@ public class Dados {
 	}
 	
 	public Endereco getEndereco(int pos) {
-		return endereco[pos];
+		return this.endereco[pos];
 	}
 	
 	// Telefone
@@ -70,7 +70,7 @@ public class Dados {
 	}
 	
 	public Telefone getTelefone(int pos) {
-		return telefone[pos];
+		return this.telefone[pos];
 	}
 	
 	// Bicicleta
@@ -98,7 +98,7 @@ public class Dados {
 	
 	// Corrida
 	public String getCorrida (int pos) {
-		return corrida[pos].getTempoUso() + "min - " + corrida[pos].getKmPedalado() + "km - " + corrida[pos].getDataUso();
+		return corrida[pos].getUsuario()+ " | " + corrida[pos].getTempoUso() + "min| " + corrida[pos].getKmPedalado() + "km| " + corrida[pos].getDataUso();
 	}
 	
 }
