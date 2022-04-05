@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,7 +18,7 @@ public class TelaAlugar implements ActionListener {
 	private static JFrame janela = new JFrame("Alugar");
 	private static JLabel titulo = new JLabel("Alugar");
 	private static JLabel texto = new JLabel("Mostre o QR Code para a estação");
-	private static JPanel qr = new JPanel();
+	private static JLabel qr = new JLabel();
 	private static JButton botao = new JButton("Ok");
 
 	public void show() {
@@ -31,6 +33,7 @@ public class TelaAlugar implements ActionListener {
 		texto.setForeground(Color.white);
 		texto.setBounds(30, 60, 200, 60);
 		
+		qr.setIcon(new ImageIcon("images\\qr.png"));
 		qr.setBackground(Color.white);
 		qr.setBounds(60, 115, 230, 230);
 

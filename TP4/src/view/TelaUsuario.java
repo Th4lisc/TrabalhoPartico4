@@ -9,46 +9,54 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class TelaUsuario {
+import controller.*;
+
+public class TelaUsuario implements ActionListener {
 
 	private static JFrame janela = new JFrame("Usuario");
 	private static JLabel nomeUsuario = new JLabel();
-	private static JLabel email = new JLabel("email");
-	private static JLabel telefone = new JLabel("telll");
-	private static JLabel cpf = new JLabel("cpff");
-	private static JLabel plano = new JLabel("plano????");
-	private static JLabel kmPedalado = new JLabel("km pedalado");
-	
+	private static JLabel email = new JLabel();
+	private static JLabel telefone = new JLabel();
+	private static JLabel cpf = new JLabel();
+	private static JLabel plano = new JLabel();
+	private static JLabel kmPedalado = new JLabel();
 	private static JButton editar = new JButton("Editar");
 	private static JButton botao = new JButton("Ok");
+	
+	private static ControleDados d;
+	private static TelaCadastro cadastro;
 
-	public TelaUsuario() {
+	public void show(ControleDados d, TelaCadastro cadastro){
 		janela.getContentPane().setBackground(Color.darkGray);
 		janela.setLocationByPlatform(true);
 		janela.setResizable(false);
 		
+		this.d = d;
+		this.cadastro = cadastro;
+		
+		int id = this.d.getQtdUsuarios()-1;
+
 		// Title
-		nomeUsuario.setText("Usuário"); // COLOCAR NOME DO USUARIO
+		nomeUsuario.setText(d.getUsuarios()[id].getNomecompleto());
 		nomeUsuario.setFont(new Font("MS Gothic", Font.BOLD, 24));
 		nomeUsuario.setForeground(Color.white);
-		nomeUsuario.setBounds(30, 15, 200, 60);
+		nomeUsuario.setBounds(30, 15, 300, 60);
 		
 		// Body
-		
-		//email.setText();
-		email.setBounds(50, 70, 200, 60);
+		email.setText("Email: " + d.getUsuarios()[id].getEmail());
+		email.setBounds(50, 90, 200, 60);
 		email.setForeground(Color.white);
-		//telefone.setText();
-		telefone.setBounds(50, 100, 200, 60);
+		telefone.setText("Telefone: (" + d.getUsuarios()[id].getTelefone().getDDD() + ") " + d.getUsuarios()[id].getTelefone().getNumero());
+		telefone.setBounds(50, 120, 200, 60);
 		telefone.setForeground(Color.white);
-		//cpf.setText();
-		cpf.setBounds(50, 130, 200, 60);
+		cpf.setText("Cpf: " + d.getUsuarios()[id].getCpf());
+		cpf.setBounds(50, 150, 200, 60);
 		cpf.setForeground(Color.white);
-		//plano.setText();
-		plano.setBounds(50, 160, 200, 60);
+		plano.setText("Plano: " + d.getUsuarios()[id].getPlano());
+		plano.setBounds(50, 180, 200, 60);
 		plano.setForeground(Color.white);
-		//kmPedalado.setText();
-		kmPedalado.setBounds(50, 190, 200, 60);
+		kmPedalado.setText("Km pedalados: " + d.getUsuarios()[id].getKmPedalado());
+		kmPedalado.setBounds(50, 210, 200, 60);
 		kmPedalado.setForeground(Color.white);
 		
 		// Botoes
@@ -71,11 +79,24 @@ public class TelaUsuario {
 		janela.setSize(360, 480);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
-	}
-	
-	public static void main(String[] args) {
+		
 		TelaUsuario usuario = new TelaUsuario();
 		
+		botao.addActionListener(usuario);
+		editar.addActionListener(usuario);
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		Object src = e.getSource();
+		
+		if (src == botao) {
+			janela.dispose();
+		} else if (src == editar) {
+			janela.dispose();
+			
+			cadastro.editar(true);
+			cadastro.setVisible(true);
+		} 
 	}
 
 }

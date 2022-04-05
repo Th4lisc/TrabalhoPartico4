@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.*;
 
 import controller.*;
+import model.*;
 
 public class TelaCadastro implements ActionListener {
 
@@ -38,6 +41,11 @@ public class TelaCadastro implements ActionListener {
 	private static JLabel numero = new JLabel("Número:");
 	private static JTextField entrynumero = new JTextField();
 	private static JButton botao = new JButton("Ok");
+	
+	private static TelaCadastro cadastro;
+	
+	private boolean editar = false;
+	private boolean visivel = false;
 
 	public void show() {
 		janela.getContentPane().setBackground(Color.darkGray);
@@ -142,33 +150,50 @@ public class TelaCadastro implements ActionListener {
 		
 		janela.setSize(360, 480);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		janela.setVisible(true);
 		
-		TelaCadastro cadastro = new TelaCadastro();
+		if (!visivel) {
+			janela.setVisible(true);
+		}
+		
+		this.cadastro = new TelaCadastro();
 		botao.addActionListener(cadastro);
 	}
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		ControleUsuario us = new ControleUsuario();
-		ControleEndereco end = new ControleEndereco();
-		ControleTelefone tel = new ControleTelefone();
+		
+		Date agora = Calendar.getInstance().getTime();
+		ControleDados dados = new ControleDados();
+		
 		
 		if (src == botao) {
-			// Verificar dados
-			if (us.verificaTamanho(entrynome.getText()) && us.verificaTamanho(entrysobrenome.getText())) {
-				if (us.verificaCpf(entrycpf.getText())) {
-					if(us.verificaEmail(entryemail.getText()) && us.verificaTamanho(entryemail.getText())) {
-						// Add usuario
-						int id = us.getQtdUsuarios();
-						end.addEndereco(id, entrycep.getText(), entrypais.getText(), entryestado.getText(), entrybairro.getText(), entryruaQuadra.getText(), entrynumero.getText());
-						tel.addTelefone(id, entryddd.getText(), entrynumero.getText());
-						us.addUsuario(id, entrynome.getText(), entrysobrenome.getText(), entryemail.getText(), end.getEndereco(id), tel.getTelefone(id), entrycpf.getText(), 0);
+			// Verifica dados
+			if (dados.verificaTamanho(entrynome.getText()) && dados.verificaTamanho(entrysobrenome.getText())) {
+				if (dados.verificaCpf(entrycpf.getText())) {
+					if (dados.verificaEmail(entryemail.getText()) && dados.verificaTamanho(entryemail.getText())) {
 						
-						JOptionPane.showMessageDialog(null, "Cadastrado!", "Pronto", JOptionPane.INFORMATION_MESSAGE);
-						janela.dispose();
-						new TelaMenu().show();
-						//
+						int id = dados.getQtdUsuarios();
+						
+						if (!editar){ // Adicionar novo Usuario
+							dados.addEndereco(id, new Endereco(entrycep.getText(), entrypais.getText(), entryestado.getText(), entrybairro.getText(), entryruaQuadra.getText(), entrynumero.getText()));
+							dados.addTelefone(id, new Telefone(entryddd.getText(), entrynum.getText()));
+							dados.addUsuario(id, new Usuario(entrynome.getText(), entrysobrenome.getText(), entryemail.getText(), dados.getEndereco(id), dados.getTelefone(id), entrycpf.getText(), new PlanoFree(agora), 0));
+							
+							JOptionPane.showMessageDialog(null, "Cadastrado!", "Pronto", JOptionPane.INFORMATION_MESSAGE);
+							janela.dispose();
+							new TelaMenu().show(dados, cadastro);
+							
+							
+						} else { // Editar Usuario
+							dados.getEndereco(id-1).editaEndereco(entrycep.getText(), entrypais.getText(), entryestado.getText(), entrybairro.getText(), entryruaQuadra.getText(), entrynumero.getText());
+							dados.getTelefone(id-1).editaTelefone(entryddd.getText(), entrynum.getText());
+							dados.getUsuarios()[id-1].editaUsuario(entrynome.getText(), entrysobrenome.getText(), entryemail.getText(), dados.getEndereco(id-1), dados.getTelefone(id-1), entrycpf.getText(), dados.getUsuarios()[id-1].getKmPedalado());
+							
+							JOptionPane.showMessageDialog(null, "Atualizado!", "Pronto", JOptionPane.INFORMATION_MESSAGE);
+							janela.dispose();
+							//new TelaMenu().setVisible(true);
+						}
+						
 					} else {
 						JOptionPane.showMessageDialog(null, "Email inválido", "Erro", JOptionPane.INFORMATION_MESSAGE);
 					}
@@ -179,6 +204,15 @@ public class TelaCadastro implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Nome ou sobrenome inválidos", "Erro", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
+	}
+	
+	public void setVisible (boolean o) {
+		this.visivel = o;
+		janela.setVisible(o);
+	}
+	
+	public void editar (boolean e) {
+		this.editar = e;
 	}
 
 }

@@ -23,11 +23,11 @@ public class TelaBoasvindas implements ActionListener {
 		titulo.setForeground(Color.white);
 		titulo.setBounds(45, 25, 250, 60);
 		
-		label.setIcon(new ImageIcon("bike.png"));
-		Dimension size = label.getPreferredSize(); //Gets the size of the image
-        label.setBounds(95, 120, size.width, size.height); //Sets the location of the image
+		label.setIcon(new ImageIcon("images\\bike.png"));
+		Dimension size = label.getPreferredSize(); // Tamanho da Imagem
+        label.setBounds(95, 130, size.width, size.height); // Posição da imagem
  
-        c.add(label); //Adds objects to the container
+        c.add(label);
 		
 		botao.setBackground(Color.white);
 		botao.setBounds(120, 360, 100, 30);
