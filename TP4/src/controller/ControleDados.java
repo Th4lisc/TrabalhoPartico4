@@ -97,4 +97,45 @@ public class ControleDados {
 		}
 		return a;
 	}
+	
+	// Verificacoes
+	public boolean verificaCpf (String cpf) {
+		if (cpf.length() != 11) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	public boolean verificaEmail (String email) {
+		if (email.contains("@")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean verificaDDD (String ddd) {
+		if (ddd.length() != 3) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	public boolean verificaNumero (String numero) {
+		if (numero.length() != 9) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	public boolean verificaTamanho (String entry) {	// Se a entrada for muita pequena
+		if (entry.length() <= 3) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
