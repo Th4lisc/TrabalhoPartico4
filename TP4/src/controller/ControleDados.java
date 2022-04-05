@@ -59,8 +59,42 @@ public class ControleDados {
 		return dados.getQtdEstacoes();
 	}
 	
+	public Estacao getEstacaoNome(String nome) {
+		for (int i = 0; i < this.getQtdEstacoes(); i++) {
+			if (this.getEstacoes()[i].getNome().equals(nome)) {
+				return this.getEstacoes()[i];
+			}
+		}
+		return null;
+	}
+	
+	public Estacao getEstacaoNumVagas(String num) {
+		
+		int numero;
+		try {
+			numero = Integer.parseInt(num);
+		} catch (Exception e) {
+			return null;		// Se não for um número, retorna null
+		}
+		
+		for (int i = 0; i < this.getQtdEstacoes(); i++) {
+			if (this.getEstacoes()[i].getNumVagasDisponiveis() == numero) {
+				return this.getEstacoes()[i];
+			}
+		}
+		return null;
+	}
+	
 	// Corridas
 	public String getCorrida (int pos) {
 		return dados.getCorrida(pos);
+	}
+	
+	public String[] getCorridas (int pos) {
+		String[] a = new String[pos];
+		for (int i = 0; i < pos; i++) {
+			a[i] = (dados.getCorrida(i));
+		}
+		return a;
 	}
 }
