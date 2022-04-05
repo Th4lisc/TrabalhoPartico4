@@ -92,16 +92,16 @@ public class Usuario {
 		return true;
 	}
 	
-	public void editaUsuario(String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, String cpf, Plano plano, int kmPedalado) {
+	public void editaUsuario(String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, String cpf, int kmPedalado) {
 		setNome(nome);
 		setSobrenome(sobrenome);
 		setEmail(email);
 		setEndereco(endereco);
 		setTelefone(telefone);
 		setCpf(cpf);
-		setPlano(plano);
 		setKmPedalado(kmPedalado);
 	}
+
 	
 	public void deletaUsuario() {		
 	}
