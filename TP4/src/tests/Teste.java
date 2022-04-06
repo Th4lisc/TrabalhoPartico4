@@ -46,6 +46,7 @@ class Teste {
 	void testValidaEntrada() {
 		assertTrue(d.verificaTamanho("João")); // entrada valida
 		assertFalse(d.verificaTamanho("oi")); // entrada invalida
+		assertFalse(d.verificaTamanho("123")); // entrada invalida
 		assertFalse(d.verificaTamanho("")); // entrada invalida
 	}
 
