@@ -70,6 +70,11 @@ public class Bicicleta {
 		this.kmPedalado = km;
 	}
 	
+	public boolean addKmPedalado(int km) {
+		this.kmPedalado += km;
+		return true;
+	}
+	
 	public void deletaBicicleta() {
 		//
 	}

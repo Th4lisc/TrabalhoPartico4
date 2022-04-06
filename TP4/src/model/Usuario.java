@@ -87,7 +87,7 @@ public class Usuario {
 		this.kmPedalado = km;
 	}
 	//
-	public boolean addKmPedalado(float km) {
+	public boolean addKmPedalado(int km) {
 		this.kmPedalado += km;
 		return true;
 	}
