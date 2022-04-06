@@ -30,15 +30,12 @@ public class Telefone {
 		this.numero = num;
 	}
 	
-	public boolean editaTelefone(String ddd, String numero) {
+	public void editaTelefone(String ddd, String numero) {
 		this.ddd = ddd;
 		this.numero = numero;
-		
-		return true;
 	}
 	
-	public boolean deletaTelefone() {
-		
-		return true;
+	public void deletaTelefone() {
+
 	}
 }
