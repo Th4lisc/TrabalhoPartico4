@@ -74,4 +74,8 @@ public class Corrida {
 		setBicicletaUtilizada(bicicletaUtilizada);
 		setKmPedalado(kmPedalado);
 	}
+	
+	public void deletaCorrida () {
+		
+	}
 }
