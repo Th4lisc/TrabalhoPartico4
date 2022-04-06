@@ -14,7 +14,7 @@ import controller.*;
 
 public class TelaPlano implements ActionListener {
 
-	private static String[] l = {"Free", "Pago (R$ 169,9) | Anual", "Pago (R$ 19,9) | Mensal"};
+	private static String[] l = {"Free", "Pago (R$ 199,9) | Anual", "Pago (R$ 29,9) | Mensal"};
 	private static JFrame janela = new JFrame("Planos");
 	private static JLabel titulo = new JLabel("Planos");
 	private static JLabel planoAtualtexto = new JLabel("Seu plano atual:");
