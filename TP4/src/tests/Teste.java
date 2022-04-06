@@ -49,5 +49,12 @@ class Teste {
 		assertFalse(d.verificaTamanho("123")); // entrada invalida
 		assertFalse(d.verificaTamanho("")); // entrada invalida
 	}
+	
+	@Test
+	void testQuantidade() {
+		assertEquals(10, d.getQtdUsuarios()); // numero carregado ao iniciar o app
+		assertEquals(10, d.getQtdBicicletas());
+		assertEquals(10, d.getQtdEstacoes());
+	}
 
 }
