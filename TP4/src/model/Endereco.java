@@ -82,4 +82,8 @@ public class Endereco {
 		setRuaQuadra(ruaQuadra);
 		setNumero(numero);
 	}
+	
+	public void deletaEndereco () {
+		
+	}
 }
