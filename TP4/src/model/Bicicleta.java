@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * A classe Bicicleta cadastra, edita, fornece informacoes e deleta os objetos Bicicletas
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class Bicicleta {
 
 	// Atributos
@@ -9,6 +15,15 @@ public class Bicicleta {
 	private String cor;
 	private float peso;
 	private int kmPedalado;
+	
+	/**
+	 * Metodo construtor da classe
+	 * @param status booleano que representa se a bicicleta esta em uso ou nao
+	 * @param aro inteiro que representa o numero de polegadas da roda
+	 * @param cor string que representa a cor
+	 * @param peso float que representa o peso
+	 * @param kmPedalado inteiro que representa a quantidade de quilometros pedalados
+	 */
 	
 	// Construtor
 	public Bicicleta(boolean status, int aro, String cor, float peso, int kmPedalado) {
@@ -70,9 +85,30 @@ public class Bicicleta {
 		this.kmPedalado = km;
 	}
 	
-	public boolean addKmPedalado(int km) {
+	/**
+	 * Metodo que adiciona quilometros no contador total
+	 * @param km inteiro a ser adicionado
+	 */
+	
+	public void addKmPedalado(int km) {
 		this.kmPedalado += km;
-		return true;
+	}
+	
+	/**
+	 * Metodo que possibilita a edicao de um objeto Bicicleta
+	 * @param status booleano que representa se a bicicleta esta em uso ou nao
+	 * @param aro inteiro que representa o numero de polegadas da roda
+	 * @param cor string que representa a cor
+	 * @param peso float que representa o peso
+	 * @param kmPedalado inteiro que representa a quantidade de quilometros pedalados
+	 */
+	
+	public void editaBicicleta(boolean status, int aro, String cor, float peso, int kmPedalado) {
+		setStatus(status);
+		setAro(aro);
+		setCor(cor);
+		setPeso(peso);
+		setKmPedalado(kmPedalado);
 	}
 	
 	public void deletaBicicleta() {

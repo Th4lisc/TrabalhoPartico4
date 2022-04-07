@@ -2,6 +2,13 @@ package model;
 
 import java.util.Date;
 
+/**
+ * A classe Corrida cadastra, edita, fornece informacoes e deleta os objetos Corrida
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ *
+ */
+
 public class Corrida {
 
 	// Atributos
@@ -10,6 +17,15 @@ public class Corrida {
 	private Date dataUso;
 	private Bicicleta bicicletaUtilizada;
 	private int kmPedalado;
+	
+	/**
+	 * Metodo construtor da classe
+	 * @param usuario Usuario que representa o usuario que realizou a corrida
+	 * @param tempoUso long que representa o numero de minutos de duracao
+	 * @param dataUso Date que representa a data da corrida
+	 * @param bicicletaUtilizada Bicicleta que representa a bicicleta utilizada
+	 * @param kmPedalado inteiro que representa a quantidade de quilometros pedalados
+	 */
 	
 	// Construtor
 	public Corrida(Usuario usuario, long tempoUso, Date dataUso, Bicicleta bicicletaUtilizada, int kmPedalado) {
@@ -63,9 +79,23 @@ public class Corrida {
 		this.kmPedalado = km;
 	}
 	
+	/**
+	 * Metodo que adiciona quilometros no contador total
+	 * @param km inteiro a ser adicionado
+	 */
+	
 	public void addKmPedalado(int km) {
 		this.kmPedalado += km;
 	}
+	
+	/**
+	 * Metodo que possibilita a edicao de um objeto Corrida
+	 * @param usuario Usuario que representa o usuario que realizou a corrida
+	 * @param tempoUso long que representa o numero de minutos de duracao
+	 * @param dataUso Date que representa a data da corrida
+	 * @param bicicletaUtilizada Bicicleta que representa a bicicleta utilizada
+	 * @param kmPedalado inteiro que representa a quantidade de quilometros pedalados
+	 */
 	
 	public void editaCorrida(Usuario usuario, long tempoUso, Date dataUso, Bicicleta bicicletaUtilizada, int kmPedalado) {
 		setUsuario(usuario);
@@ -76,6 +106,6 @@ public class Corrida {
 	}
 	
 	public void deletaCorrida () {
-		
+		//
 	}
 }

@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * A classe Usuario cadastra, edita, fornece informacoes e deleta os objetos Usuario
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class Usuario {
 	
 	// Atributos usuario
@@ -11,6 +17,18 @@ public class Usuario {
 	private String cpf;
 	private Plano plano;
 	private int kmPedalado;
+	
+	/**
+	 * Metodo construtor da classe
+	 * @param nome string que representa o nome do usuario
+	 * @param sobrenome string que representa o sobrenome do usuario
+	 * @param email string que representa o email do usuario
+	 * @param endereco Endereco que representa o endereco do ususario
+	 * @param telefone Telefone que representa o telefone do ususario
+	 * @param cpf string que representa o cpf do usuario
+	 * @param plano Plano que representa o plano do usuario
+	 * @param kmPedalado inteiro que representa o numero de quilometros pedalado pelo usuario
+	 */
 	
 	// Construtor
 	public Usuario (String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, String cpf, Plano plano, int kmPedalado) {
@@ -86,11 +104,27 @@ public class Usuario {
 	public void setKmPedalado(int km) {
 		this.kmPedalado = km;
 	}
-	//
-	public boolean addKmPedalado(int km) {
+	
+	/**
+	 * Metodo que adiciona quilometros no contador total
+	 * @param km inteiro a ser adicionado
+	 */
+	
+	public void addKmPedalado(int km) {
 		this.kmPedalado += km;
-		return true;
 	}
+	
+	/**
+	 * Metodo que possibilita a edicao de um objeto Usuario
+	 * @param nome string que representa o nome do usuario
+	 * @param sobrenome string que representa o sobrenome do usuario
+	 * @param email string que representa o email do usuario
+	 * @param endereco Endereco que representa o endereco do ususario
+	 * @param telefone Telefone que representa o telefone do ususario
+	 * @param cpf string que representa o cpf do usuario
+	 * @param plano Plano que representa o plano do usuario
+	 * @param kmPedalado inteiro que representa o numero de quilometros pedalado pelo usuario
+	 */
 	
 	public void editaUsuario(String nome, String sobrenome, String email, Endereco endereco, Telefone telefone, String cpf, int kmPedalado) {
 		setNome(nome);
@@ -102,7 +136,7 @@ public class Usuario {
 		setKmPedalado(kmPedalado);
 	}
 
-	
-	public void deletaUsuario() {		
+	public void deletaUsuario() {
+		//
 	}
 }

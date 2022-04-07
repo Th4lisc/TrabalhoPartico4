@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * A classe Dados gera, fornece e adiciona dados
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -17,6 +23,10 @@ public class Dados {
 	private int qtdEstacao = 0;
 	private Corrida[] corrida = new Corrida[50];
 	private int qtdCorrida = 0;
+	
+	/**
+	 * Metodo que carrega dados aleatorios
+	 */
 	
 	public void carregaDados () {
 		Date agora = Calendar.getInstance().getTime();
@@ -48,10 +58,22 @@ public class Dados {
 		return usuario;
 	}
 	
+	/**
+	 * Realiza a adição de um usuario na lista de usuarios do sistema e incrementa o contador
+	 * @param u usuario a ser adicionado
+	 * @param pos um numero inteiro representando a posição da lista onde sera adicionado o usuario
+	 */
+	
 	public void addUsuario(Usuario u, int pos) {
 		this.usuario[pos] = u;
 		if(pos == qtdUsuario) qtdUsuario++;
 	}
+	
+	/**
+	 * Realiza a adição de um endereco na lista de enderecos do sistema
+	 * @param end endereco a ser adicionado
+	 * @param pos um numero inteiro representando a posição da lista onde sera adicionado o endereco
+	 */
 	
 	// Endereco
 	public void addEndereco(Endereco end, int pos) {
@@ -62,6 +84,12 @@ public class Dados {
 	public Endereco getEndereco(int pos) {
 		return this.endereco[pos];
 	}
+	
+	/**
+	 * Realiza a adição de um telefone na lista de telefone do sistema
+	 * @param tel telefone a ser adicionado
+	 * @param pos um numero inteiro representando a posição da lista onde sera adicionado o telefone
+	 */
 	
 	// Telefone
 	public void addTelefone(Telefone tel, int pos) {
@@ -78,9 +106,20 @@ public class Dados {
 		return qtdBicicleta;
 	}
 	
+	/**
+	 * Fornece acesso a uma lista com todas as bicicletas
+	 * @return Uma lista com todos as bicicletas
+	 */
+	
 	public Bicicleta[] getBicicletas() {
 		return bicicleta;
 	}
+	
+	/**
+	 * Realiza a adição de uma bicicleta na lista de bicicletas do sistema
+	 * @param b bicicleta a ser adicionada
+	 * @param pos um numero inteiro representando a posição da lista onde sera adicionada a bicicleta
+	 */
 	
 	public void addBicicleta(Bicicleta b, int pos) {
 		this.bicicleta[pos] = b;
@@ -92,9 +131,20 @@ public class Dados {
 		return qtdEstacao;
 	}
 	
+	/**
+	 * Fornece acesso a uma lista com todas as estacoes
+	 * @return Uma lista com todos as estacoes
+	 */
+	
 	public Estacao[] getEstacoes () {
 		return estacao;
 	}
+	
+	/**
+	 * Fornece acesso a informacoes de uma corrida
+	 * @param pos inteiro que representa a posicao da corrida na lista de corridas
+	 * @return string contendo as informacoes da corrida
+	 */
 	
 	// Corrida
 	public String getCorrida (int pos) {

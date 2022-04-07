@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * A classe Endereco cadastra, edita, fornece informacoes e deleta os objetos Endereco
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class Endereco {
 
 	// Atributos Endereco
@@ -9,6 +15,16 @@ public class Endereco {
 	private String bairro;
 	private String ruaQuadra;
 	private String numero;
+	
+	/**
+	 * Metodo construtor da classe
+	 * @param cep string que representa o numero do cep
+	 * @param pais string que representa o nome do pais
+	 * @param estado string que representa o nome do estado
+	 * @param bairro string que representa o nome do bairro
+	 * @param ruaQuadra string que representa o nome da rua ou quadra
+	 * @param numero string que representa o numero da moradia
+	 */
 		
 	// Construtor
 	public Endereco(String cep, String pais, String estado, String bairro, String ruaQuadra, String numero) {
@@ -19,6 +35,11 @@ public class Endereco {
 		setRuaQuadra(ruaQuadra);
 		setNumero(numero);		
 	}
+	
+	/**
+	 * Metodo que fornece o endereco completo
+	 * @return string que representa o endereco completo
+	 */
 	
 	// Metodos
 	public String completo() {
@@ -74,6 +95,16 @@ public class Endereco {
 		this.numero = num;
 	}
 	
+	/**
+	 * Metodo que possibilita a edicao de um objeto Endereco
+	 * @param cep string que representa o numero do cep
+	 * @param pais string que representa o nome do pais
+	 * @param estado string que representa o nome do estado
+	 * @param bairro string que representa o nome do bairro
+	 * @param ruaQuadra string que representa o nome da rua ou quadra
+	 * @param numero string que representa o numero da moradia
+	 */
+	
 	public void editaEndereco(String cep, String pais, String estado, String bairro, String ruaQuadra, String numero) {
 		setCep(cep);
 		setPais(pais);
@@ -84,6 +115,6 @@ public class Endereco {
 	}
 	
 	public void deletaEndereco () {
-		
+		//
 	}
 }
