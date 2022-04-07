@@ -7,7 +7,7 @@ import model.*;
 /**
  * Fornece a interface para acesso as classes do pacote model
  * @author Thalis Ianzer
- * @version 1.0 (Apr 2022)
+ * @version 1.0 (apr 2022)
  */
 
 public class ControleDados {
