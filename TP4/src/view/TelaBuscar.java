@@ -9,6 +9,14 @@ import javax.swing.*;
 
 import controller.ControleDados;
 
+/**
+ * A classe TelaBuscar constroi a tela que possibilita buscar estacoes por dois diferentes modos:
+ * (1) pelo nome da estacao
+ * (2) pelo numero de vagas disponiveis na estacao
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class TelaBuscar implements ActionListener {
 
 	static String opcoes[] = {"Estação por nome", "Estação por número de vagas"};
@@ -24,6 +32,11 @@ public class TelaBuscar implements ActionListener {
 	private static JButton botao = new JButton("Buscar");
 	private static JButton voltar = new JButton("Voltar");
 	private static ControleDados d;
+	
+	/**
+	 * Metodo que constroi e mostra a tela e seus elementos
+	 * @param d ControleDados contendo todos os dados do sistema
+	 */
 
 	public void show(ControleDados d) {
 		janela.getContentPane().setBackground(Color.darkGray);
@@ -83,6 +96,12 @@ public class TelaBuscar implements ActionListener {
 		botao.addActionListener(buscar);
 		voltar.addActionListener(buscar);
 	}
+	
+	/**
+	 * Metodo que monitora click nos botoes, assim:
+	 * (1) o botao for "buscar" realiza uma busca nos dados do sistema levando em conta seu nome ou numero de vagas disponiveis
+	 * (2) caso seja o outro botao, fecha a janela
+	 */
 
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

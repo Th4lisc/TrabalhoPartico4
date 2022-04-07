@@ -6,6 +6,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+/**
+ * A classe TelaBoasVindas constroi a tela inicial e responde a eventos do usuario nesta
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class TelaBoasvindas implements ActionListener {
 
 	private static JFrame janela = new JFrame("Bem-vindo");
@@ -42,11 +48,20 @@ public class TelaBoasvindas implements ActionListener {
 		janela.setVisible(true);
 	}
 	
+	/**
+	 * Cria novo objeto TelaBoasvindas e adiciona monitorador ao evento de click no botao
+	 * @param args
+	 */
+	
 	public static void main(String[] args) {
 		TelaBoasvindas tela1 = new TelaBoasvindas();
 		
 		botao.addActionListener(tela1);
 	}
+	
+	/**
+	 * Metodo que monitora click no botao e executa metodo de fechar janela
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

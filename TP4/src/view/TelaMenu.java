@@ -6,6 +6,12 @@ import javax.swing.*;
 
 import controller.*;
 
+/**
+ * A classe TelaMenu constroi a tela, mostra botoes e monitora eventos do usuario no botao
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class TelaMenu implements ActionListener {
 
 	private static JFrame janela = new JFrame("Menu");
@@ -20,6 +26,12 @@ public class TelaMenu implements ActionListener {
 	private static TelaCadastro cadastro;
 	
 	private boolean visivel = false;
+	
+	/**
+	 * Metodo que constroi e mostra a tela e seus elementos
+	 * @param d ControleDados contendo todos os dados do sistema
+	 * @param cadastro TelaCadastro contendo o objeto TelaCadastro cadastro
+	 */
 
 	public void show(ControleDados d, TelaCadastro cadastro) {
 		
@@ -74,6 +86,15 @@ public class TelaMenu implements ActionListener {
 		buscar.addActionListener(menu);
 	}
 	
+	/**
+	 * Metodo que monitora click nos botoes, assim:
+	 * (1) botao alugar executa o metodo show do objeto TelaAlugar()
+	 * (2) botao perfil executa o metodo show do objeto TelaUsuario() passando os parametros de dados e o objeto TelaCadastro cadastro
+	 * (3) botao plano executa o metodo show do objeto TelaPlano() passando o parametro de dados
+	 * (4) botao corrida executa o metodo show do objeto TelaCorrida() passando o parametro de dados
+	 * (5) botao buscar executa o metodo show do objeto TelaBuscar() passando o parametro de dados
+	 */
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -93,6 +114,11 @@ public class TelaMenu implements ActionListener {
 			new TelaBuscar().show(d);
 		}
 	}
+	
+	/**
+	 * Metodo que define a visibilidade da tela de menu
+	 * @param o booleano que representa (verdadeiro) tela visivel ou (falso) tela nao visivel
+	 */
 	
 	public void setVisible (boolean o) {
 		this.visivel = o;

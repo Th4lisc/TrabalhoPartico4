@@ -12,6 +12,12 @@ import javax.swing.*;
 import controller.*;
 import model.*;
 
+/**
+ * A classe TelaCadastro constroi a tela, recebe as entradas de cadastro de usuario e monitora eventos do usuario no botao
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class TelaCadastro implements ActionListener {
 
 	private static JFrame janela = new JFrame("Cadastro");
@@ -46,6 +52,10 @@ public class TelaCadastro implements ActionListener {
 	
 	private boolean editar = false;
 	private boolean visivel = false;
+	
+	/**
+	 * Metodo que constroi e mostra a tela e seus elementos
+	 */
 
 	public void show() {
 		janela.getContentPane().setBackground(Color.darkGray);
@@ -159,6 +169,10 @@ public class TelaCadastro implements ActionListener {
 		botao.addActionListener(cadastro);
 	}
 	
+	/**
+	 * Metodo que monitora click no botao, quando acionado, realiza a verificacao dos campos e cadastra o usuario
+	 */
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -206,10 +220,20 @@ public class TelaCadastro implements ActionListener {
 		}
 	}
 	
+	/**
+	 * Metodo que define a visibilidade da tela de cadastro
+	 * @param o booleano que representa (verdadeiro) tela visivel ou (falso) tela nao visivel
+	 */
+	
 	public void setVisible (boolean o) {
 		this.visivel = o;
 		janela.setVisible(o);
 	}
+	
+	/**
+	 * Metodo que define se a acao eh de cadastro ou de edicao do usuario
+	 * @param e booleano que representa (verdadeiro) modo edicao ou (falso) modo cadastro
+	 */
 	
 	public void editar (boolean e) {
 		this.editar = e;

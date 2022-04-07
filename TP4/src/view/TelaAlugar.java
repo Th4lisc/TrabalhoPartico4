@@ -12,14 +12,23 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * A classe TelaAlugar constroi a tela, mostra um qrcode para aluguel e monitora eventos do usuario no botao
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class TelaAlugar implements ActionListener {
 
-	
 	private static JFrame janela = new JFrame("Alugar");
 	private static JLabel titulo = new JLabel("Alugar");
 	private static JLabel texto = new JLabel("Mostre o QR Code para a estação");
 	private static JLabel qr = new JLabel();
 	private static JButton botao = new JButton("Ok");
+	
+	/**
+	 * Metodo que constroi e mostra a tela e seus elementos
+	 */
 
 	public void show() {
 		janela.getContentPane().setBackground(Color.darkGray);
@@ -55,6 +64,10 @@ public class TelaAlugar implements ActionListener {
 		
 		botao.addActionListener(alugar);
 	}
+	
+	/**
+	 * Metodo que monitora click no botao e executa metodo de fechar janela
+	 */
 
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

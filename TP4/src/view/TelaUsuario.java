@@ -11,6 +11,12 @@ import javax.swing.JLabel;
 
 import controller.*;
 
+/**
+ * A classe TelaUsuario constroi a tela, mostra informacoes do usuario e monitora eventos do usuario no botao
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class TelaUsuario implements ActionListener {
 
 	private static JFrame janela = new JFrame("Usuario");
@@ -25,6 +31,12 @@ public class TelaUsuario implements ActionListener {
 	
 	private static ControleDados d;
 	private static TelaCadastro cadastro;
+	
+	/**
+	 * Metodo que constroi e mostra a tela e seus elementos
+	 * @param d ControleDados contendo todos os dados do sistema
+	 * @param cadastro TelaCadastro contendo o objeto TelaCadastro cadastro
+	 */
 
 	public void show(ControleDados d, TelaCadastro cadastro){
 		janela.getContentPane().setBackground(Color.darkGray);
@@ -85,6 +97,12 @@ public class TelaUsuario implements ActionListener {
 		botao.addActionListener(usuario);
 		editar.addActionListener(usuario);
 	}
+	
+	/**
+	 * Metodo que monitora click nos botoes, assim:
+	 * (1) botao Ok executa metodo de fechar janela
+	 * (2) botao Editar executa o metodo editar(true) e setVisible(true) do objeto TelaCadastro cadastro
+	 */
 
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

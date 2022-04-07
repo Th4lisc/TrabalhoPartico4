@@ -12,6 +12,12 @@ import javax.swing.JList;
 
 import controller.*;
 
+/**
+ * A classe TelaPlano constroi a tela, mostra informacoes de planos e monitora eventos do usuario no botao
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class TelaPlano implements ActionListener {
 
 	private static String[] l = {"Free", "Pago (R$ 199,9) | Anual", "Pago (R$ 29,9) | Mensal"};
@@ -22,10 +28,14 @@ public class TelaPlano implements ActionListener {
 	private static JList<String> allPlanos = new JList<>(l);
 	private static JButton botao = new JButton("Ok");
 	
-	//private static ControleUsuario us;
 	private static ControleDados d;
+	
+	/**
+	 * Metodo que constroi e mostra a tela e seus elementos
+	 * @param d ControleDados contendo todos os dados do sistema
+	 */
 
-	public void show(ControleDados d){//ControleUsuario us) {
+	public void show(ControleDados d){
 		janela.getContentPane().setBackground(Color.darkGray);
 		janela.setLocationByPlatform(true);
 		janela.setResizable(false);
@@ -67,6 +77,10 @@ public class TelaPlano implements ActionListener {
 		
 		botao.addActionListener(plano);
 	}
+	
+	/**
+	 * Metodo que monitora click no botao e executa metodo de fechar janela
+	 */
 
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

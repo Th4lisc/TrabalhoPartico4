@@ -9,6 +9,12 @@ import javax.swing.*;
 
 import controller.*;
 
+/**
+ * A classe TelaCorrida constroi a tela, mostra dados de corrida e monitora eventos do usuario no botao
+ * @author Thalis Ianzer
+ * @version 1.0 (apr 2022)
+ */
+
 public class TelaCorrida implements ActionListener {
 	
 	private static JFrame janela = new JFrame("Corridas");
@@ -18,6 +24,11 @@ public class TelaCorrida implements ActionListener {
 	private static JButton voltar = new JButton("Voltar");
 	
 	private ControleDados d;
+	
+	/**
+	 * Metodo que constroi e mostra a tela e seus elementos
+	 * @param d ControleDados contendo todos os dados do sistema
+	 */
 
 	public void show(ControleDados d) {
 		janela.getContentPane().setBackground(Color.darkGray);
@@ -56,6 +67,10 @@ public class TelaCorrida implements ActionListener {
 		
 		voltar.addActionListener(menu);
 	}
+	
+	/**
+	 * Metodo que monitora click no botao e executa metodo de fechar janela
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
