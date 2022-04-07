@@ -1,13 +1,13 @@
 package model;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * A classe Dados gera, fornece e adiciona dados
  * @author Thalis Ianzer
  * @version 1.0 (apr 2022)
  */
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class Dados {
 
